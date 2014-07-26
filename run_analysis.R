@@ -1,6 +1,8 @@
 
 DATASET_PATH <- 'UCI HAR Dataset'
 
+require(reshape2)
+
 # Reads the feature definitions and returns a vector with the indices
 # of the features of interest to us in the raw dataset. The names of the 
 # elements in the vector correspond to the actual names of the features 
@@ -64,6 +66,15 @@ read.dataset <- function(type, features, activity.types) {
   dataset <- cbind(dataset, measurements)
 }
 
+# Creates a new dataset containing the average (mean) of each measurement from
+# the original dataset for each subject and activity.
+create.averaged.dataset <- function(original.dataset) {
+  melted <- melt(dataset, id.vars=c('Subject', 'Activity'))
+  melted$variable <- sapply(melted$variable, function(v) paste('mean(', v, ')', sep=''))
+  unmelted <- dcast(melted, Subject + Activity ~ variable, fun.aggregate=mean)
+  unmelted
+}
+
 # Read in the feature definitions
 features <- read.features()
 
@@ -76,7 +87,9 @@ train.dataset <- read.dataset('train', features, activity.types)
 
 # Combine the test and training datasets
 dataset <- rbind(test.dataset, train.dataset)
+dataset.averaged <- create.averaged.dataset(dataset)
 
-# Write out the tidy datasets to 'tidy_data.csv'
+# Write out the tidy datasets to 'tidy_data.csv' and 'tidy_data-averaged.csv'
 write.csv(dataset, 'tidy_data.csv', row.names=F)
+write.csv(dataset.averaged, 'tidy_data-averaged.csv', row.names=F)
 
