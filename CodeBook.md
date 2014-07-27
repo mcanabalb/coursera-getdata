@@ -1,10 +1,6 @@
 Human Activity Recognition Using Smartphones Datasteoh
 =========
 
-This data in this dataset is a processed tidy version of the dataset from the data collected from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-
-Dataset Features
-----------------
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals `tAcc-XYZ` and `tGyro-XYZ`. These time domain signals (prefix `t` to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (`tBodyAcc-XYZ` and `tGravityAcc-XYZ`) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (`tBodyAccJerk-XYZ` and `tBodyGyroJerk-XYZ`). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (`tBodyAccMag`, `tGravityAccMag`, `tBodyAccJerkMag`, `tBodyGyroMag`, `tBodyGyroJerkMag`).
@@ -39,4 +35,4 @@ The set of variables that were estimated from these signals are:
 
 Also available as record variables:
 - `Subject`: An identifier of the human whose responsible for this measurement
-- `Activity`: The type of activity the human was taking part in which resulted in this measurement
+- `Activity`: The type of activity the human was taking part in which resulted in the record's measurements
