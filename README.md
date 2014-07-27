@@ -5,7 +5,7 @@ This repository contains the processing code for producing tidy datasets from th
 
 In order to produce the tidy datasets, I do the following:
  1. Read the measurement features from the file `features.txt`, recognizing the ordered index and name of each measurement
- 2. Subset the recognized measurements to those whose names contain either the text `"mean"` or the text `"std"` which signifies that they are either an arithmetic mean or standard deviation of the corresponding series.
+ 2. Subset the recognized measurements to those whose names contain either the text `mean` or the text `std` which signify that they are either an arithmetic mean or standard deviation of the corresponding series.
  3. Read the descriptive textual activity labels from the file `activity_labels.txt`
  4. For the `test` dataset, read in the subject column data for all the test observations from the file `subject_test.txt`
  5. From the `test` dataset, read in the measurement feautres from the file `X_test.txt`. The measurement values should correspond to the features read in step #2 before the subsetting. The measurement values are then projected onto only the features left after the subsetting in step #2.
